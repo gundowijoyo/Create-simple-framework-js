@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Library Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+<div class="px-4 py-8">
+<header class="text-center mb-12">
+<h1 class="text-4xl font-bold text-blue-600">Library Kustom Documentation</h1>
+<p class="text-lg text-gray-700 mt-2">Panduan penggunaan library JavaScript sederhana</p>
+</header>
+
+<main class="bg-white p-8 rounded-lg shadow-lg">
+<section class="mb-8">
+<h2 class="text-2xl font-semibold text-blue-500 mb-4">Pendahuluan</h2>
+<p>Library ini dirancang untuk memberikan fungsionalitas seperti jQuery dalam bentuk yang lebih sederhana dan lebih ringan, memungkinkan pengguna untuk menambahkan event listener, mengatur properti CSS, serta mengelola kelas CSS pada elemen HTML dengan mudah.</p>
+</section>
+
+<section class="mb-8">
+<h2 class="text-2xl font-semibold text-blue-500 mb-4">Instalasi</h2>
+<p>Tidak diperlukan instalasi khusus. Cukup sertakan skrip library ini dalam tag
+<code>
+ &lt;script src="path/your_file"&gt;&lt;/script></code> di HTML Anda.</p>
+</section>
+
+<section class="mb-8">
+<h2 class="text-2xl font-semibold text-blue-500 mb-4">Fungsi Konstruktor</h2>
+<pre class="bg-gray-100 p-4 rounded overflow-x-auto"><code>function $(selector) {
+if (!(this instanceof $)) {
+return new $(selector);
+}
+this.elements = document.querySelectorAll(selector);
+}</code></pre>
+<p>Memilih elemen berdasarkan selektor CSS yang diberikan.</p>
+</section>
+
+<section class="mb-8">
+<h2 class="text-2xl font-semibold text-blue-500 mb-4">Metode</h2>
+<h3 class=" font-semibold text-blue-400 mb-2">
+$.prototype.on(event, callback)</h3>
+<pre class="bg-gray-100 p-4 rounded overflow-x-auto"><code>$.prototype.on = function (event, callback) {
+this.elements.forEach(function (element) {
+element.addEventListener(event, callback);
+});
+return this;
+};</code></pre>
+<p>Menambahkan event listener ke elemen yang dipilih.</p>
+
+<h3 class=" font-semibold text-blue-400 mb-2">$.prototype.css(property, value)</h3>
+<pre class="bg-gray-100 p-4 rounded overflow-x-auto"><code>$.prototype.css = function (property, value) {
+this.elements.forEach(function (element) {
+element.style[property] = value;
+});
+return this;
+};</code></pre>
+<p>Mengatur properti CSS pada elemen yang dipilih.</p>
+
+<h3 class="font-semibold text-blue-400 mb-2">
+$.prototype.classAdd(className)</h3>
+<pre class="bg-gray-100 p-4 rounded overflow-x-auto"><code>$.prototype.classAdd = function (className) {
+this.elements.forEach(function (element) {
+element.classList.add(className);
+});
+return this;
+};</code></pre>
+<p>Menambahkan kelas CSS ke elemen yang dipilih.</p>
+
+<h3 class=" font-semibold text-blue-400 mb-2">
+$.prototype.classRemove(className)</h3>
+<pre class="bg-gray-100 p-4 rounded overflow-x-auto"><code>$.prototype.classRemove = function (className) {
+this.elements.forEach(function (element) {
+element.classList.remove(className);
+});
+return this;
+};</code></pre>
+<p>
+Menghapus kelas CSS dari elemen yang dipilih.</p>
+
+<h3 class=" font-semibold text-blue-400 mb-2">
+$.prototype.classToggle(className)
+</h3>
+<pre class="bg-gray-100 p-4 rounded overflow-x-auto"><code>$.prototype.classToggle = function (className) {
+this.elements.forEach(function (element) {
+element.classList.toggle(className);
+});
+return this;
+};</code></pre>
+<p>Toggle (aktif/nonaktif) kelas CSS pada elemen yang dipilih.</p>
+</section>
+
+<section>
+<h2 class="text-2xl font-semibold text-blue-500 mb-4">Contoh Penggunaan</h2>
+<pre class="bg-gray-100 p-4 rounded overflow-x-auto"><code>
+document.addEventListener("DOMContentLoaded", function() {
+
+$('selector').classAdd('active');
+$('selector').css('color','red');
+$('selector').on('click', function() {
+$('selector').classToggle('clicked');
+});
+});</code></pre>
+<p>Menggunakan library kustom untuk menambahkan event listener, mengatur properti CSS, dan mengelola kelas CSS pada elemen HTML.</p>
+<br/>
+
+<button id="myButton" class="bg-indigo-500 px-4 py-2 text-white rounded">
+  Click
+</button>
+</section>
+<br/>
+<section>
+  Kalian bisa mengembangkan framework ini dengan versi kalian sendiri, Oke oke
+  semoga bermanfaat🤩.
+</section>
+</main>
+</div>
+<footer class="text-center mb-2">
+<p>©opyright Gundo Wijoyo. All rights reserved </p>
+<p onclick="window.open('https://github.com/gundowijoyo')"class="fab fa-github text-center text-2xl mt-2 bg-white px-2 py-2
+rounded-full hover:bg-indigo-500 hover:text-white"></p>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+
+ document.addEventListener("DOMContentLoaded", function() {
+            $('#myButton').on('click', function() {
+                Swal.fire({
+                    title: 'Button Clicked!',
+                    text: 'You clicked the button!',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                });
+            });
+
+let status = false;
+ $('#myButton').on('click', function() {
+
+ if(!status){
+ $('#myButton').classRemove('bg-indigo-500');
+ $('#myButton').classAdd('bg-red-500');
+ }else{
+ $('#myButton').classRemove('bg-red-500');
+ $('#myButton').classAdd('bg-indigo-500');
+ } 
+ status = !status   
+
+  });
+  });
+  
+    </script>
+</body>
+  </html>
+  
